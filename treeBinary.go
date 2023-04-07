@@ -60,6 +60,6 @@ func main() {
 	tree.Insert(88, "apa coba")
 
 	fmt.Print(tree)
-	fmt.Println(tree.Search(88), count)
+	fmt.Println(tree.Search(39), count)
 	tree.Print()
 }
