@@ -107,6 +107,24 @@ func (list *doublyLinkedList) PrintForward() {
 	}
 }
 
+func (list *doublyLinkedList) viewByID (id int) bool {
+	node := list.head
+	
+	for node != nil {
+		if node.noID == id {
+			fmt.Print("\nID Karyawan: ", node.noID)
+			fmt.Print("\nNama Karyawan: ", node.namaKaryawan)
+
+			return true
+		}
+
+		node = node.next
+	}
+
+	fmt.Println("ID tidak ditemukan")
+	return false
+}
+
 func (list *doublyLinkedList) getSize() int {
 	return list.size
 }
@@ -204,7 +222,11 @@ func main() {
 				list.PrintForward()
 
 			case 6:
-				//view by id
+				var id int
+				fmt.Print("Masukkan ID karyawan: ")
+				fmt.Scanln(&id)
+				list.viewByID(id)
+				fmt.Println("Posisi: Member")
 
 			case 7:
 				lanjut = "y"
@@ -264,6 +286,11 @@ func main() {
 
 			case 6:
 				//view by id
+				var id int
+				fmt.Print("\nMasukkan ID karyawan: ")
+				fmt.Scanln(&id)
+				kasir.viewByID(id)
+				fmt.Println("\nPosisi: Kasir")
 
 			case 7:
 				lanjut = "y"
